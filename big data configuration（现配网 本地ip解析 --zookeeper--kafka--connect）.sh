@@ -1,4 +1,4 @@
-使用confluent kafka 与 flink 为核心搭建 --鞍钢集团数据总线
+使用confluent kafka 与 flink 为核心搭建 -
 
 
 简介：数据总线 核心分为数据采集kafka和计算处理flink

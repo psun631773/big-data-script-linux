@@ -23,9 +23,4 @@ The deployment stack includes the following key components:
 - Java 8 or higher
 - Access to a command-line interface (CLI)
 
-### Installation
 
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/yourusername/your-repository-name.git
