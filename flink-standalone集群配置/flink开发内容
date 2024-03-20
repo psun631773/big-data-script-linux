@@ -1,0 +1,10 @@
+rest api
+http://10.151.34.233:8081/jobmanager/config  Get方法
+
+http://10.151.34.233:8081/jobs
+
+文档地址
+https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/ops/rest_api/#jobs-jobid-status
+
+/jobs/:jobid
+Verb: PATCH

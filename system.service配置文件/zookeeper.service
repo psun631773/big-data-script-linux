@@ -1,0 +1,15 @@
+[Unit]
+Description=Apache Zookeeper server (Kafka)
+Documentation=http://zookeeper.apache.org
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+User=root
+Environment=JAVA_HOME=/app/jdk-11
+ExecStart=/app/kafka/confluent-7.0.1/bin/zookeeper-server-start /app/kafka/confluent-7.0.1/etc/kafka/zookeeper.properties
+ExecStop=/app/kafka/confluent-7.0.1/bin/zookeeper-server-stop
+
+[Install]
+WantedBy=multi-user.target

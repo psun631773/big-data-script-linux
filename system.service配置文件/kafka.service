@@ -1,0 +1,18 @@
+[Unit]
+Description=Apache Kafka - broker
+Documentation=http://docs.confluent.io/
+After=network.target confluent-zookeeper.target
+Requires=zookeeper.service
+
+[Service]
+Type=simple
+User=root
+Environment="JAVA_HOME=/app/jdk-11" "KAFKA_HEAP_OPTS=-Xmx4G -Xms4G" "JMX_PORT=9097"
+ExecStart=/app/kafka/confluent-7.0.1/bin/kafka-server-start /app/kafka/confluent-7.0.1/etc/kafka/server.properties
+ExecStop=/app/kafka/confluent-7.0.1/bin/kafka-server-stop
+LimitNOFILE=1000000  
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

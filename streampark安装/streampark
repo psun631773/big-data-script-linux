@@ -1,0 +1,40 @@
+1.官网下载
+apache-streampark_2.12-2.1.1-incubating-bin.tar.gz
+
+java11
+
+
+2.创建存储目录
+mkdir  /opt/streampark_workspace
+
+
+3
+/app/apache-streampark_2.12-2.1.1-incubating-bin/conf/application-mysql.yml
+
+spring:
+  datasource:
+    username: root
+    password: streampark
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.151.47.28:3306/streampark?useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+
+
+
+spring:
+  profiles.active: mysql #[h2,pgsql,mysql]
+  application.name: StreamPark
+  devtools.restart.enabled: false
+  mvc.pathmatch.matching-strategy: ant_path_matcher
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 500MB
+  aop.proxy-target-class: true
+  messages.encoding: utf-8
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  main:
+    allow-circular-references: true
+    banner-mode: off

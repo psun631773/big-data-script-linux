@@ -1,0 +1,15 @@
+[Unit]
+Description=RESTful Avro schema registry for Apache Kafka
+Documentation=http://docs.confluent.io/
+After=network.target kafka.target
+Requires=kafka.service
+[Service]
+Type=simple
+User=root
+Environment="LOG_DIR=/app/kafka/data/schema-registry" "JAVA_HOME=/app/jdk-11"
+ExecStart=/app/kafka/confluent-7.0.1/bin/schema-registry-start /app/kafka/confluent-7.0.1/etc/schema-registry/schema-registry.properties
+ExecStop=/app/kafka/confluent-7.0.1/bin/schema-registry-stop
+TimeoutStopSec=180
+Restart=no
+[Install]
+WantedBy=multi-user.target
